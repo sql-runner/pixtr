@@ -1,0 +1,13 @@
+<h1>These are the galleries</h1>
+
+<ul>
+  <% @galleries.each do |gallery| %>
+    <li>
+      <%= link_to gallery.name, gallery_path(gallery) %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to "New Gallery", new_gallery_path() %>
+  </li>
+</ul>
+

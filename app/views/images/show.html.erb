@@ -1,0 +1,13 @@
+<h1><%= @image.name.capitalize %> Page</h1>
+
+<div>
+<%= link_to "Edit #{@image.name}", edit_gallery_image_path(@gallery, @image)%>
+</div>
+<div>
+  <%= link_to "Delete #{@image.name}", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+<br>
+<div>
+  <%= image_tag @image.url %>
+</div>
+

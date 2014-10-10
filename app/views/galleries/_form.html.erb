@@ -1,0 +1,16 @@
+<%= form_for @gallery do |form| %>
+  <div>
+    <%= form.label :name, "Gallery Name"%>
+    <%= form.text_field :name%>
+  </div>
+  <div>
+    <%= form.label :description, "Description"%>
+    <%= form.text_area :description%>
+  </div>
+  <div>
+    <%= form.label :cover_image, "Cover Image URL"%>
+    <%= form.text_field :cover_image%>
+  </div>
+  <%= form.submit %>
+<% end %>
+

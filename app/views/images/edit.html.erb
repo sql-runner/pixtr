@@ -1,0 +1,19 @@
+<h1>Edit Image</h1>
+
+
+<%= form_for [@gallery, @image] do |form| %>
+  <div>
+    <%= form.label :name, "Image Name"%>
+    <%= form.text_field :name%>
+  </div>
+  <div>
+    <%= form.label :description, "Description"%>
+    <%= form.text_area :description%>
+  </div>
+  <div>
+    <%= form.label :url, "Image URL"%>
+    <%= form.text_field :url%>
+  </div>
+  <%= form.submit %>
+<% end %>
+

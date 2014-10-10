@@ -1,0 +1,28 @@
+<h1><%= @gallery.name %> Gallery </h1>
+<div>
+  <%=image_tag @gallery.cover_image %>
+</div>
+<div>
+  <p> 
+    <%= @gallery.description %> 
+  </p>
+</div>
+<div>
+  <%= link_to "Back to Galleries", galleries_path %>
+</div>
+<br>
+<div>
+  <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
+</div>
+<br>
+<%= link_to "Delete Gallery", gallery_path(@gallery), method: :delete, data:{confirm:"Are you sure"}%>
+<br>
+<%= link_to "Create Image", new_gallery_image_path(@gallery, @image) %>
+<br>
+  <% @gallery.images.each do |image| %>
+    <div>
+      <%= link_to gallery_image_path(@gallery, image) do %>
+        <%= image_tag image.url %>
+      <% end %>
+    </div>
+  <% end %>
