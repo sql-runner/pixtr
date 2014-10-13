@@ -1,6 +1,6 @@
 <h1><%= @gallery.name %> Gallery </h1>
 <div>
-  <%=image_tag @gallery.cover_image %>
+  <%=image_tag @gallery.cover_image, width: "300" %>
 </div>
 <div>
   <p> 
@@ -10,14 +10,13 @@
 <div>
   <%= link_to "Back to Galleries", galleries_path %>
 </div>
-<br>
 <div>
   <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
 </div>
-<br>
 <%= link_to "Delete Gallery", gallery_path(@gallery), method: :delete, data:{confirm:"Are you sure"}%>
-<br>
+<div>
 <%= link_to "Create Image", new_gallery_image_path(@gallery, @image) %>
+</div>
 <br>
   <% @gallery.images.each do |image| %>
     <div>

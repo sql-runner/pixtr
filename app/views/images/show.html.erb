@@ -6,8 +6,27 @@
 <div>
   <%= link_to "Delete #{@image.name}", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
+<div>
+  <%= link_to "Gallery #{@gallery.name}", gallery_path(@gallery) %>
+</div>
 <br>
 <div>
   <%= image_tag @image.url %>
 </div>
 
+<div>
+  <p></p>
+</div>
+
+<div>
+  <%= form_for [@image, @comment] do |f| %>
+    <%= f.label :content, "Comment"%>
+    <%= f.text_field :content %>
+    <%= f.submit "Enter Comment" %>
+  <% end %>
+</div> 
+
+<div>
+  <p></p>
+</div>
+  <%= render @image.comments.by_most_recent  %>
