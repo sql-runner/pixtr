@@ -19688,3 +19688,533 @@ Processing by ImagesController#show as HTML
   Rendered images/show.html.erb within layouts/application (9.7ms)
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
 Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:35:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (1.1ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (12.4ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 76ms (Views: 52.8ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:35:33 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:33 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:33 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:33 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:33 -0400
+
+
+Started GET "/galleries/new" for 127.0.0.1 at 2014-10-13 17:35:36 -0400
+Processing by GalleriesController#new as HTML
+  Rendered galleries/_form.html.erb (33.3ms)
+  Rendered galleries/new.html.erb within layouts/application (35.9ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dgYSkDvv+CW+z/ms1zJlmzTDhvtnKjy1sSqipehsud8=", "gallery"=>{"name"=>"haha", "description"=>"hahah", "cover_image"=>"http://www.dogbreedinfo.com/images24/LabradorRetrieverMollyChocLabPurebredDog.jpg"}, "commit"=>"Create Gallery"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (58.4ms)[0m  INSERT INTO "galleries" ("cover_image", "created_at", "description", "name", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["cover_image", "http://www.dogbreedinfo.com/images24/LabradorRetrieverMollyChocLabPurebredDog.jpg"], ["created_at", "2014-10-13 21:35:42.556383"], ["description", "hahah"], ["name", "haha"], ["updated_at", "2014-10-13 21:35:42.556383"]]
+  [1m[36m (41.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/4
+Completed 302 Found in 108ms (ActiveRecord: 100.6ms)
+
+
+Started GET "/galleries/4" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mGallery Load (0.5ms)[0m  SELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images"  WHERE "images"."gallery_id" = $1[0m  [["gallery_id", 4]]
+  Rendered galleries/show.html.erb within layouts/application (17.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:42 -0400
+
+
+Started GET "/galleries/4/images/new" for 127.0.0.1 at 2014-10-13 17:35:45 -0400
+Processing by ImagesController#new as HTML
+  Parameters: {"gallery_id"=>"4"}
+  [1m[36mGallery Load (0.8ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered images/_form.html.erb (6.2ms)
+  Rendered images/new.html.erb within layouts/application (7.1ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 40ms (Views: 30.0ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/galleries/4/images" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dgYSkDvv+CW+z/ms1zJlmzTDhvtnKjy1sSqipehsud8=", "image"=>{"name"=>"shs", "description"=>"hdhdhd", "url"=>"http://www.dogbreedinfo.com/images24/LabradorRetrieverMollyChocLabPurebredDog.jpg"}, "commit"=>"Create Image", "gallery_id"=>"4"}
+  [1m[36mGallery Load (0.3ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mImage Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "images"  WHERE "images"."url" = 'http://www.dogbreedinfo.com/images24/LabradorRetrieverMollyChocLabPurebredDog.jpg' LIMIT 1[0m
+  [1m[35mSQL (45.2ms)[0m  INSERT INTO "images" ("created_at", "description", "gallery_id", "name", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-10-13 21:35:52.272276"], ["description", "hdhdhd"], ["gallery_id", 4], ["name", "shs"], ["updated_at", "2014-10-13 21:35:52.272276"], ["url", "http://www.dogbreedinfo.com/images24/LabradorRetrieverMollyChocLabPurebredDog.jpg"]]
+  [1m[36m (43.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/4
+Completed 302 Found in 103ms (ActiveRecord: 89.5ms)
+
+
+Started GET "/galleries/4" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mGallery Load (0.4ms)[0m  SELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT "images".* FROM "images"  WHERE "images"."gallery_id" = $1[0m  [["gallery_id", 4]]
+  Rendered galleries/show.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:52 -0400
+
+
+Started GET "/galleries/4/images/14" for 127.0.0.1 at 2014-10-13 17:35:53 -0400
+Processing by ImagesController#show as HTML
+  Parameters: {"gallery_id"=>"4", "id"=>"14"}
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mGallery Load (0.4ms)[0m  SELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."image_id" = $1  ORDER BY "comments"."created_at" DESC[0m  [["image_id", 14]]
+  Rendered collection (0.0ms)
+  Rendered images/show.html.erb within layouts/application (12.1ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 46ms (Views: 35.0ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/images/14/comments" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dgYSkDvv+CW+z/ms1zJlmzTDhvtnKjy1sSqipehsud8=", "comment"=>{"content"=>"yea"}, "commit"=>"Enter Comment", "image_id"=>"14"}
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("content", "created_at", "image_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "yea"], ["created_at", "2014-10-13 21:35:58.103370"], ["image_id", 14], ["updated_at", "2014-10-13 21:35:58.103370"], ["user_id", 1]]
+  [1m[36m (78.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/4/images/14
+Completed 302 Found in 94ms (ActiveRecord: 80.1ms)
+
+
+Started GET "/galleries/4/images/14" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+Processing by ImagesController#show as HTML
+  Parameters: {"gallery_id"=>"4", "id"=>"14"}
+  [1m[35mImage Load (0.6ms)[0m  SELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mGallery Load (0.4ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mComment Load (0.7ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."image_id" = $1  ORDER BY "comments"."created_at" DESC  [["image_id", 14]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (3.6ms)
+  Rendered images/show.html.erb within layouts/application (9.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 37ms (Views: 32.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:35:58 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:40:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (1.4ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (13.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 77ms (Views: 54.9ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:40:52 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:52 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:52 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:52 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:52 -0400
+
+
+Started DELETE "/session" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dgYSkDvv+CW+z/ms1zJlmzTDhvtnKjy1sSqipehsud8="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (0.5ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:40:53 -0400
+
+
+Started GET "/session/new" for 127.0.0.1 at 2014-10-13 17:40:56 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 57ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-10-13 17:41:00 -0400
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K5bAeQUhiJt6Sh9NLgYFbq9RRg/8l17z0m6fxBGG2u8=", "user"=>{"email"=>"h@i.j", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'h@i.j' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-13 21:41:09.766132"], ["email", "h@i.j"], ["password_digest", "$2a$10$GKInoXti.rJ3xPXZSd0s6O6gXeYvXGAF5hSZ0pFiUowlcX/TmUeGO"], ["updated_at", "2014-10-13 21:41:09.766132"]]
+  [1m[35m (49.0ms)[0m  COMMIT
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'h@i.j' AND "users"."id" != 3) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 146ms (ActiveRecord: 51.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (0.7ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1[0m
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:09 -0400
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2014-10-13 17:41:12 -0400
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGallery Load (0.6ms)[0m  SELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mImage Load (0.7ms)[0m  [1mSELECT "images".* FROM "images"  WHERE "images"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (27.3ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+Completed 200 OK in 55ms (Views: 45.8ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/galleries/1/images/1" for 127.0.0.1 at 2014-10-13 17:41:13 -0400
+Processing by ImagesController#show as HTML
+  Parameters: {"gallery_id"=>"1", "id"=>"1"}
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGallery Load (0.4ms)[0m  SELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (1.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."image_id" = $1  ORDER BY "comments"."created_at" DESC[0m  [["image_id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (7.2ms)
+  Rendered images/show.html.erb within layouts/application (24.2ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+Completed 200 OK in 62ms (Views: 45.9ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/images/1/comments" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K5bAeQUhiJt6Sh9NLgYFbq9RRg/8l17z0m6fxBGG2u8=", "comment"=>{"content"=>"whatever"}, "commit"=>"Enter Comment", "image_id"=>"1"}
+  [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "comments" ("content", "created_at", "image_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "whatever"], ["created_at", "2014-10-13 21:41:16.600763"], ["image_id", 1], ["updated_at", "2014-10-13 21:41:16.600763"], ["user_id", 3]]
+  [1m[36m (71.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/1/images/1
+Completed 302 Found in 82ms (ActiveRecord: 73.3ms)
+
+
+Started GET "/galleries/1/images/1" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+Processing by ImagesController#show as HTML
+  Parameters: {"gallery_id"=>"1", "id"=>"1"}
+  [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGallery Load (0.2ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."image_id" = $1  ORDER BY "comments"."created_at" DESC  [["image_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (7.2ms)
+  Rendered images/show.html.erb within layouts/application (11.2ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+Completed 200 OK in 38ms (Views: 32.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:16 -0400
+
+
+Started DELETE "/session" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"K5bAeQUhiJt6Sh9NLgYFbq9RRg/8l17z0m6fxBGG2u8="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+Processing by GalleriesController#index as HTML
+  [1m[36mGallery Load (0.6ms)[0m  [1mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:41:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:44:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (0.6ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 58ms (Views: 43.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:44:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:44:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:44:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:44:17 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:44:17 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:51:35 -0400
+Processing by GalleriesController#index as HTML
+  [1m[36mGallery Load (0.4ms)[0m  [1mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:51:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:51:35 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:51:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:51:35 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:51:35 -0400
+
+
+Started GET "/session/new" for 127.0.0.1 at 2014-10-13 17:51:37 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 17:52:54 -0400
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (0.4ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 17:52:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 17:52:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 17:52:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 17:52:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 17:52:54 -0400
+
+
+Started GET "/galleries" for 127.0.0.1 at 2014-10-14 09:13:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (64.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (97.8ms)[0m  SELECT "galleries".* FROM "galleries"
+  Rendered galleries/index.html.erb within layouts/application (243.8ms)
+Completed 200 OK in 1616ms (Views: 1312.3ms | ActiveRecord: 207.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-14 09:13:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-14 09:13:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-14 09:13:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-14 09:13:51 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-14 09:13:51 -0400
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2014-10-14 09:13:52 -0400
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.6ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mImage Load (33.7ms)[0m  SELECT "images".* FROM "images"  WHERE "images"."gallery_id" = $1  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (112.4ms)
+Completed 200 OK in 151ms (Views: 108.9ms | ActiveRecord: 39.4ms)
+
+
+Started GET "/galleries/1/images/new" for 127.0.0.1 at 2014-10-14 09:13:54 -0400
+Processing by ImagesController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.7ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered images/_form.html.erb (103.7ms)
+  Rendered images/new.html.erb within layouts/application (131.1ms)
+Completed 200 OK in 167ms (Views: 164.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/galleries/1/images/1" for 127.0.0.1 at 2014-10-14 09:13:57 -0400
+Processing by ImagesController#show as HTML
+  Parameters: {"gallery_id"=>"1", "id"=>"1"}
+  [1m[35mImage Load (0.7ms)[0m  SELECT  "images".* FROM "images"  WHERE "images"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGallery Load (1.2ms)[0m  [1mSELECT  "galleries".* FROM "galleries"  WHERE "galleries"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (42.0ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."image_id" = $1  ORDER BY "comments"."created_at" DESC  [["image_id", 1]]
+  [1m[36mUser Load (41.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered comments/_comment.html.erb (67.9ms)
+  Rendered images/show.html.erb within layouts/application (125.6ms)
+Completed 200 OK in 188ms (Views: 60.4ms | ActiveRecord: 92.6ms)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2014-10-14 13:59:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2014-10-14 13:59:52 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (110.1ms)
+Completed 200 OK in 156ms (Views: 155.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-14 13:59:52 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-14 13:59:52 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-14 13:59:52 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-14 13:59:52 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-14 13:59:52 -0400
