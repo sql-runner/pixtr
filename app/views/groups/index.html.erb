@@ -1,0 +1,22 @@
+<h1>All The Groups</h1>
+
+<div>
+  <%= link_to "Create a Group", new_group_path %>
+</div>
+
+<% @groups.each do |group| %>
+  <div>
+    <p>
+      <%= link_to "#{group.name}", group_path(group.id) %>
+    </p>
+    <p>
+      <%= group.description %>
+    </p>
+  </div>
+<% end %>
+
+<div>
+  <p>
+    <%= link_to "Back to Galleries", galleries_path %>
+  </p>
+</div>

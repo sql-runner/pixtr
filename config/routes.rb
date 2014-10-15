@@ -13,4 +13,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  resources :groups do
+    member do
+      post "join" => "group_memberships#create"
+      delete "leave" => "group_memberships#destroy"
+    end
+  end
+
 end

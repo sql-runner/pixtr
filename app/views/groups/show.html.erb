@@ -1,0 +1,32 @@
+<h1><%= @group.name %> Group </h1>
+
+<div>
+  <p>
+    <%= @group.description %>
+  </p>
+</div>
+<div>
+  <ul>
+    <% @group.users.each do |user| %>
+      <li>
+        <%= user.email %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <% if @group.users.include? current_user %>
+    <p>You are already a member.</p>
+    <%= button_to "Leave This Group", leave_group_path, method: :delete %>
+    <br>
+  <% else %>
+      <%= button_to "Join This Group", join_group_path %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Back to Groups", groups_path %>
+</div>
+<div>
+  <%= button_to "Delete Group", group_path, method: :delete %>
+</div>

@@ -1,5 +1,14 @@
 <h1>These are the galleries</h1>
 
+<div>
+  <%= link_to "Show Groups", groups_path %>
+</div>
+<div>
+  <%= link_to "Create a Group", new_group_path %>
+</div>
+<!-- link_to join_group_path, "Create a Group" -->
+
+
 <ul>
   <% @galleries.each do |gallery| %>
     <li>
