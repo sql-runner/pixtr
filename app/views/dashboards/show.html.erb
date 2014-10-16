@@ -1,0 +1,26 @@
+<h1> Hello <%=current_user.email%></h1>
+
+
+<div>
+  <ul>
+    <% current_user.images.each do |image| %>
+      <li>
+        <%= image_tag image.url, width:"200" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<h2> Liked Images </h2>
+
+<div>
+  <ul>
+    <% current_user.liked_images.each do |image| %>
+      <li>
+        <%= image_tag image.url, width:"200" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+

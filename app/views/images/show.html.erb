@@ -11,7 +11,7 @@
 </div>
 <br>
 <div>
-  <%= image_tag @image.url %>
+  <%= image_tag @image.url, width:"300" %>
 </div>
 
 <div>
@@ -23,6 +23,19 @@
 <% else %>
   <%= button_to "Like", image_like_path(@image) %>
 <% end %>
+<div>
+  <p>Likes: <%= @image.likes.count %> </p>
+</div>
+<div>
+  <ul>
+    <% @image.tags.each do |tag| %>
+      <li>
+      <%= link_to tag.name, tag_path(tag.name) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 
 <div>
   <%= form_for [@image, @comment] do |f| %>

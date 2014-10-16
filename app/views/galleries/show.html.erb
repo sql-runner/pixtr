@@ -21,7 +21,7 @@
   <% @gallery.images.each do |image| %>
     <div>
       <%= link_to gallery_image_path(@gallery, image) do %>
-        <%= image_tag image.url %>
+        <%= image_tag image.url, width: "300" %>
       <% end %>
     </div>
   <% end %>
