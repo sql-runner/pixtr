@@ -30,3 +30,9 @@
 <div>
   <%= button_to "Delete Group", group_path, method: :delete %>
 </div>
+
+<% @group.images.each do |image| %>
+  <div>
+    <%= image_tag image.url %>
+  </div>
+<% end %>

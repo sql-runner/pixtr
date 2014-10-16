@@ -18,6 +18,12 @@
   <p></p>
 </div>
 
+<% if current_user.liked_images.include? @image %>
+  <%= button_to "Dislike", image_like_path(@image), method: :delete %>
+<% else %>
+  <%= button_to "Like", image_like_path(@image) %>
+<% end %>
+
 <div>
   <%= form_for [@image, @comment] do |f| %>
     <%= f.label :content, "Comment"%>

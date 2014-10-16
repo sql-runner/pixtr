@@ -20,5 +20,10 @@
     <%= form.label :url, "Image URL"%>
     <%= form.text_field :url%>
   </div>
+  <div>
+    <%= form.collection_check_boxes :group_ids, current_user.groups, :id, :name %>
+  </div>
+  <div>
   <%= form.submit %>
+  </div>
 <% end %>
